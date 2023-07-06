@@ -13,7 +13,9 @@
 		619339CB2A564CBC008783D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619339CA2A564CBC008783D4 /* Assets.xcassets */; };
 		619339CE2A564CBC008783D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619339CC2A564CBC008783D4 /* LaunchScreen.storyboard */; };
 		619339DA2A564EAC008783D4 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619339D92A564EAC008783D4 /* CalculatorViewModel.swift */; };
-		619339DC2A564ECF008783D4 /* ButtonCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619339DB2A564ECF008783D4 /* ButtonCellCollectionViewCell.swift */; };
+		619339DC2A564ECF008783D4 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619339DB2A564ECF008783D4 /* ButtonCell.swift */; };
+		619339DE2A564F15008783D4 /* CalculatorHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619339DD2A564F15008783D4 /* CalculatorHeaderCell.swift */; };
+		619339E02A564F33008783D4 /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619339DF2A564F33008783D4 /* CalculatorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,9 @@
 		619339CD2A564CBC008783D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619339CF2A564CBC008783D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619339D92A564EAC008783D4 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
-		619339DB2A564ECF008783D4 /* ButtonCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		619339DB2A564ECF008783D4 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		619339DD2A564F15008783D4 /* CalculatorHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorHeaderCell.swift; sourceTree = "<group>"; };
+		619339DF2A564F33008783D4 /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 		619339D52A564E02008783D4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				619339DF2A564F33008783D4 /* CalculatorButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -80,8 +85,8 @@
 		619339D62A564E06008783D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				619339DB2A564ECF008783D4 /* ButtonCellCollectionViewCell.swift */,
-				619339D82A564E5D008783D4 /* Calculator */,
+				619339DB2A564ECF008783D4 /* ButtonCell.swift */,
+				619339DD2A564F15008783D4 /* CalculatorHeaderCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -93,13 +98,6 @@
 				619339C32A564CBB008783D4 /* SceneDelegate.swift */,
 			);
 			path = Supporting;
-			sourceTree = "<group>";
-		};
-		619339D82A564E5D008783D4 /* Calculator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Calculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,7 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				619339DC2A564ECF008783D4 /* ButtonCellCollectionViewCell.swift in Sources */,
+				619339DE2A564F15008783D4 /* CalculatorHeaderCell.swift in Sources */,
+				619339E02A564F33008783D4 /* CalculatorButton.swift in Sources */,
+				619339DC2A564ECF008783D4 /* ButtonCell.swift in Sources */,
 				619339C62A564CBB008783D4 /* CalculatorViewController.swift in Sources */,
 				619339C22A564CBB008783D4 /* AppDelegate.swift in Sources */,
 				619339DA2A564EAC008783D4 /* CalculatorViewModel.swift in Sources */,

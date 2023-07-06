@@ -7,6 +7,6 @@
 
 import UIKit
 
-class ButtonCellCollectionViewCell: UICollectionViewCell {
-    
+class ButtonCell: UICollectionViewCell {
+    static let identifier = "ButtonCell"
 }
