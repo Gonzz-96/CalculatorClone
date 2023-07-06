@@ -9,6 +9,8 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
 
+    let viewModel: CalculatorViewModel
+
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -21,13 +23,18 @@ class CalculatorViewController: UIViewController {
         return collectionView
     }()
 
+    init(_ viewModel: CalculatorViewModel = CalculatorViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBlue
         setupUI()
+    }
 
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -42,6 +49,8 @@ extension CalculatorViewController {
             self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
     }
 }
 
@@ -50,7 +59,7 @@ extension CalculatorViewController: UICollectionViewDelegate,
                                     UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return viewModel.calcButtonCells.count
     }
 
 
@@ -58,13 +67,12 @@ extension CalculatorViewController: UICollectionViewDelegate,
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCell.identifier, for: indexPath) as? ButtonCell else {
             fatalError("Failed to dequeue ButtonCell in CalculatorViewController")
         }
-        cell.backgroundColor = .systemPurple
+        let calculatorButton = self.viewModel.calcButtonCells[indexPath.row]
+        cell.configure(with: calculatorButton)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width/5.0, height: view.frame.size.width/5.0)
     }
-
-
 }
