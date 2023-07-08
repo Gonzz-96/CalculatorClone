@@ -73,6 +73,18 @@ extension CalculatorViewController: UICollectionViewDelegate,
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let calculatorButton = self.viewModel.calcButtonCells[indexPath.row]
+        switch calculatorButton {
+        case .number(let int) where int == 0:
+            return CGSize(width: (view.frame.width/5.0) * 2 + ((view.frame.size.width/5.0) / 3.0),
+                          height: view.frame.size.width/5.0)
+        default:
+            break
+        }
         return CGSize(width: view.frame.size.width/5.0, height: view.frame.size.width/5.0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return (self.view.frame.width / 5) / 3
     }
 }
