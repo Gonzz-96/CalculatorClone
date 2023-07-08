@@ -87,4 +87,9 @@ extension CalculatorViewController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return (self.view.frame.width / 5) / 3
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let buttonCell = self.viewModel.calcButtonCells[indexPath.row]
+        print(buttonCell.title)
+    }
 }
