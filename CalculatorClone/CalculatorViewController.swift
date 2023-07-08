@@ -58,6 +58,34 @@ extension CalculatorViewController {
 extension CalculatorViewController: UICollectionViewDelegate,
                                     UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CalculatorHeaderCell.identifier, for: indexPath) as? CalculatorHeaderCell else {
+            fatalError()
+        }
+        header.configure(self.viewModel.calculatorHeaderLabel)
+        return header
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let window = view.window?.windowScene?.keyWindow
+        let topPadding = window?.safeAreaInsets.top ?? 0
+        let bottomPadding = window?.safeAreaInsets.bottom ?? 0
+
+        let totalCellHeight = view.frame.size.width
+        let totalVerticalCellSpacing = (10 * 4)
+        let availableScreenHeight = view.frame.size.height - topPadding - bottomPadding
+        let headerHeight = availableScreenHeight - totalCellHeight - CGFloat(totalVerticalCellSpacing)
+        return CGSize(width: view.frame.size.width, height: headerHeight)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.calcButtonCells.count
     }
